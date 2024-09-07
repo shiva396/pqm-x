@@ -48,90 +48,92 @@ class TaskBlockState extends State<TaskBlock> {
         );
       },
       child: Card(
+        color: Colors.white,
         margin: const EdgeInsets.only(bottom: 16.0),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  GestureDetector(
-                    onTap: () async {
-                      final newTitle = await showDialog<String>(
-                        context: context,
-                        builder: (context) => EditTitleDialog(initialTitle: currentTitle),
-                      );
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: () async {
+                          final newTitle = await showDialog<String>(
+                            context: context,
+                            builder: (context) =>
+                                EditTitleDialog(initialTitle: currentTitle),
+                          );
 
-                      if (newTitle != null && newTitle.isNotEmpty) {
-                        setState(() {
-                          currentTitle = newTitle;
-                        });
-                      }
-                    },
-                    child: Text(
-                      currentTitle,
-                      style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.bold),
+                          if (newTitle != null && newTitle.isNotEmpty) {
+                            setState(() {
+                              currentTitle = newTitle;
+                            });
+                          }
+                        },
+                        child: Text(
+                          currentTitle,
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isExpanded = !isExpanded;
+                          });
+                        },
+                        icon: Icon(
+                            isExpanded ? Icons.expand_less : Icons.expand_more),
+                      ),
+                    ],
+                  ),
+                  if (isExpanded) ...[
+                    const SizedBox(height: 16),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'Land Sq Feet:  $currentLandSqFeet',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      setState(() {
-                        isExpanded = !isExpanded;
-                      });
-                    },
-                    icon: Icon(isExpanded ? Icons.expand_less : Icons.expand_more),
-                  ),
+                    const SizedBox(height: 8),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            'Number of Systems: $currentNumSystems',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ],
               ),
-              if (isExpanded) ...[
-                const SizedBox(height: 16),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                     Expanded(
-                      child: Text(
-                        'Land Sq Feet:  $currentLandSqFeet' ,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    // Text(
-                    //   '$currentLandSqFeet',
-                    //   style: const TextStyle(
-                    //     fontSize: 16,
-                    //   ),
-                    // ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                     Expanded(
-                      child: Text(
-                        'Number of Systems: $currentNumSystems',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    // Text(
-                    //   '$currentNumSystems',
-                    //   style: const TextStyle(
-                    //     fontSize: 16,
-                    //   ),
-                    // ),
-                  ],
-                ),
-              ],
-            ],
-          ),
+            ),
+            Container(
+              height: 4,
+              color: Colors.blue,
+            ),
+          ],
         ),
       ),
     );

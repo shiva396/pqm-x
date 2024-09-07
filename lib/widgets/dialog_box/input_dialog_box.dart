@@ -15,7 +15,11 @@ class InputDialogState extends State<InputDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Enter Pond Details'),
+      title: const Text(
+        'Enter Pond Details',
+        style: TextStyle(color: Colors.black), // Set title text color to black
+      ),
+      backgroundColor: Colors.blue.shade50,
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -23,21 +27,51 @@ class InputDialogState extends State<InputDialog> {
             controller: titleController,
             decoration: const InputDecoration(
               labelText: 'Pond Name',
+              labelStyle: TextStyle(color: Colors.black), // Label text color
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black), // Underline color
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide:
+                    BorderSide(color: Colors.black), // Focused underline color
+              ),
             ),
+            style: const TextStyle(
+                color: Colors.black), // Text color inside TextField
           ),
           TextField(
             controller: landSqFeetController,
             decoration: const InputDecoration(
               labelText: 'Land Sq Feet',
+              labelStyle: TextStyle(color: Colors.black), // Label text color
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black), // Underline color
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide:
+                    BorderSide(color: Colors.black), // Focused underline color
+              ),
             ),
             keyboardType: TextInputType.number,
+            style: const TextStyle(
+                color: Colors.black), // Text color inside TextField
           ),
           TextField(
             controller: numSystemsController,
             decoration: const InputDecoration(
               labelText: 'Number of Systems',
+              labelStyle: TextStyle(color: Colors.black), // Label text color
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.black), // Underline color
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide:
+                    BorderSide(color: Colors.black), // Focused underline color
+              ),
             ),
             keyboardType: TextInputType.number,
+            style: const TextStyle(
+                color: Colors.black), // Text color inside TextField
           ),
         ],
       ),
@@ -46,6 +80,11 @@ class InputDialogState extends State<InputDialog> {
           onPressed: () {
             Navigator.of(context).pop();
           },
+          style: TextButton.styleFrom(
+            foregroundColor: Colors.black87,
+            backgroundColor:
+                Colors.blue.shade100, // Text color for 'Cancel' button
+          ),
           child: const Text('Cancel'),
         ),
         ElevatedButton(
@@ -62,6 +101,11 @@ class InputDialogState extends State<InputDialog> {
               );
             }
           },
+          style: ElevatedButton.styleFrom(
+            backgroundColor:
+                Colors.blue.shade300, // Background color for 'Submit' button
+            foregroundColor: Colors.black87, // Text color for 'Submit' button
+          ),
           child: const Text('Submit'),
         ),
       ],

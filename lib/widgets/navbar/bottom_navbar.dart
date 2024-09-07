@@ -12,8 +12,7 @@ class CustomBottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    const Color backgroundColor = Color.fromRGBO(243,243,243,1);
+    const Color backgroundColor = Color.fromRGBO(243, 243, 243, 1);
     return Container(
       padding: const EdgeInsets.all(10.0),
       color: backgroundColor,

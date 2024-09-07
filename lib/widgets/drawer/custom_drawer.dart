@@ -8,6 +8,7 @@ class CustomDrawer extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.6, // drawer width
       child: Drawer(
+        backgroundColor: const Color.fromRGBO(243, 243, 243, 1),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -20,17 +21,17 @@ class CustomDrawer extends StatelessWidget {
                 children: [
                   Image.asset(
                     'assets/images/Logo.png',
-                    width: 100, 
-                    height: 70, 
+                    width: 100,
+                    height: 70,
                   ),
                   const SizedBox(height: 20),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 22),
+                  const Flexible(
                     child: Text(
-                      'Menu',
+                      'Pond Quality Monitoring',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -38,11 +39,11 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: const Text('Settings'),
+              title: const Text('Option 1'),
               onTap: () {},
             ),
             ListTile(
-              title: const Text('Option 1'),
+              title: const Text('Option 2'),
               onTap: () {},
             ),
           ],
