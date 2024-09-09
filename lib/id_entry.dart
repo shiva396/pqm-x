@@ -55,14 +55,11 @@ class _UniqueIdEntryScreenState extends State<UniqueIdEntryScreen> {
             ),
           ),
           const SizedBox(height: 20),
-
-          // Logo
           Image.asset(
             'assets/images/Logo.png',
             width: 200,
             height: 200,
           ),
-
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),

@@ -8,6 +8,7 @@ class ParameterDetailPage extends StatelessWidget {
   final String imagePath;
   final String value;
   final String level;
+  final Widget meter;
 
   const ParameterDetailPage({
     super.key,
@@ -15,6 +16,7 @@ class ParameterDetailPage extends StatelessWidget {
     required this.imagePath,
     required this.value,
     required this.level,
+    required this.meter
   });
 
   @override
@@ -66,21 +68,22 @@ class ParameterDetailPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 60,
-                        width: 60,
-                        child: LiquidCircularProgressIndicator(
-                          value: .5,
-                          valueColor: AlwaysStoppedAnimation(
-                              const Color.fromARGB(255, 30, 142, 233)),
-                          backgroundColor: Colors.white,
-                          borderColor: const Color.fromARGB(255, 117, 117, 117),
-                          borderWidth: 1.0,
-                          direction: Axis.vertical,
-                        ),
-                      )),
+                  meter
+                  // Padding(
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child: Container(
+                  //       height: 60,
+                  //       width: 60,
+                  //       child: LiquidCircularProgressIndicator(
+                  //         value: .5,
+                  //         valueColor: AlwaysStoppedAnimation(
+                  //             const Color.fromARGB(255, 30, 142, 233)),
+                  //         backgroundColor: Colors.white,
+                  //         borderColor: const Color.fromARGB(255, 117, 117, 117),
+                  //         borderWidth: 1.0,
+                  //         direction: Axis.vertical,
+                  //       ),
+                  //     )),
                 ],
               ),
             ),
